@@ -1,10 +1,13 @@
 $primary-font: 'Inter', sans-serif;
 
 :root {
+
+  --gray-50: hsl(0, 0%, 99.54%);
   --gray-100: hsl(0, 0%, 98.04%);
   --gray-200: hsl(0, 0%, 94.12%);
   --gray-300: hsl(0, 0%, 90.2%);
   --gray-400: hsl(0, 0%, 86.27%);
   --gray-500: hsl(0, 0%, 82.75%);
+
   --primary-font: 'Inter', sans-serif;
 }
