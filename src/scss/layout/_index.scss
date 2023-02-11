@@ -1,0 +1,21 @@
+.general-grid {
+  display: grid;
+  min-height: 100vh;
+
+  &_left {
+  }
+  &_center {
+    background-color: var(--gray-200);
+  }
+  &_right {
+    height: 100%;
+    max-height: 100vh;
+    background-color: var(--gray-500);
+  }
+}
+
+@include min-width(1024px) {
+  .general-grid {
+    grid-template-columns: 20% 20% 60%;
+  }
+}
