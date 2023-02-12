@@ -1,13 +1,13 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-const LayerCard = ({ item,index }) => {
+const LayerCard = ({ item, index }) => {
   const RenderIcon = () => {
     if (item.type === 'shape')
       return (
         <svg
-          width="20"
-          height="20"
+          width="14"
+          height="14"
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +30,8 @@ const LayerCard = ({ item,index }) => {
     if (item.type === 'image')
       return (
         <svg
-          width="20"
-          height="20"
+          width="14"
+          height="14"
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -52,8 +52,8 @@ const LayerCard = ({ item,index }) => {
     if (item.type === 'text')
       return (
         <svg
-          width="20"
-          height="20"
+          width="14"
+          height="14"
           viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -66,15 +66,30 @@ const LayerCard = ({ item,index }) => {
       );
   };
 
+  const getItemStyle = (isDragging, draggableStyle) => ({
+    borderTop: isDragging && '1px solid lightgreen',
+    ...draggableStyle,
+  });
+  function getStyle(style, snapshot) {
+    if (!snapshot.isDropAnimating) {
+      return style;
+    }
+    return {
+      ...style,
+      transitionDuration: `0.001s`,
+    };
+  }
+
   return (
     <>
-      <Draggable draggableId={item.id} index={index}>
-        {(provided) => (
+      <Draggable draggableId={item.id} key={item.id} index={index}>
+        {(provided, snapshot) => (
           <div
-            className="layer-card"
+            className={`layer-card ${snapshot.isDragging ? 'is-dragging' : ''}`}
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
+            style={getStyle(provided.draggableProps.style, snapshot)}
           >
             <span className="layer-card_icon">
               <RenderIcon />

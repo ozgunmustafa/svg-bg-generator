@@ -36,7 +36,58 @@ function App() {
           </DragDropContext>
         </div>
         <div className="general-grid_center"></div>
-        <div className="general-grid_right"></div>
+        <div className="general-grid_right">
+          <div className="panel">
+            <div className="panel_body">
+              <div className="attribute-grid">
+                <div className="attribute-grid_header grid-col-span-2">
+                  <div className="attribute-grid_title">Canvas Size</div>
+                </div>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+              </div>
+            </div>
+          </div>
+          <div className="panel">
+            <div className="panel_body">
+              <div className="attribute-grid">
+                <div className="attribute-grid_header grid-col-span-2">
+                  <div className="attribute-grid_title">Canvas Size</div>
+                </div>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+                <label className="attribute-input-group">
+                  <span className="attribute-text">X</span>
+                  <input className="attribute-input" type="text" value="3500" />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

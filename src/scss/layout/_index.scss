@@ -3,19 +3,36 @@
   min-height: 100vh;
 
   &_left {
+    max-width: 250px;
   }
   &_center {
-    background-color: var(--gray-200);
+    background-color: var(--gray-100);
   }
   &_right {
     height: 100%;
     max-height: 100vh;
-    background-color: var(--gray-500);
+    max-width: 300px;
+  }
+}
+
+.attribute-grid {
+  display: grid;
+  gap: 0.75rem 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 34px;
+  padding: 0 1rem;
+  &_header {
+    display: flex;
+    align-items: center;
+  }
+  &_title {
+    font-size: 13px;
+    font-weight: 700;
   }
 }
 
 @include min-width(1024px) {
   .general-grid {
-    grid-template-columns: 20% 20% 60%;
+    grid-template-columns: 250px calc(100% - 550px) 350px;
   }
 }

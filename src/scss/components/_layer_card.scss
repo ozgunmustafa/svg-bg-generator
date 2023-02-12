@@ -1,14 +1,23 @@
 .layer-card {
   display: flex;
   align-items: center;
-  background-color: var(--gray-100);
-  border-top: 1px solid var(--gray-200);
-  border-bottom: 1px solid var(--gray-200);
-  padding: 10px;
+  background-color: white;
+  border: 1px solid transparent;
+  border-top: 1px solid var(--gray-100);
+  border-bottom: 1px solid var(--gray-100);
+  padding: 15px 12px;
   &_icon {
     margin-right: 7px;
   }
   &_text {
-    font-size: 14px;
+    font-size: 12px;
+  }
+  &.is-dragging {
+    background-color: var(--blue-100);
+  }
+  &:hover {
+    border-top-color: var(--blue-300);
+    border-bottom-color: var(--blue-300);
+    background-color: var(--blue-100);
   }
 }

@@ -1,0 +1,21 @@
+.panel {
+  border-bottom: 1px solid var(--gray-200);
+
+  &_body {
+    padding: 0.5rem 0rem 1rem 0;
+  }
+}
+
+.panel {
+  &_header {
+    display: grid;
+    grid-template-columns: repeat(28, 1fr);
+    padding-left: 8px;
+    padding-right: 8px;
+    align-items: center;
+    position: relative;
+    grid-template-rows: 32px;
+  }
+  &_body {
+  }
+}

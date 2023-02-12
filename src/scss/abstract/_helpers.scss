@@ -1,0 +1,33 @@
+.flex {
+  display: flex;
+}
+.items {
+  &-center {
+    align-items: center;
+  }
+}
+.justify {
+  &-between {
+    justify-content: space-between;
+  }
+}
+
+.row-custom {
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  padding-left: 8px;
+  padding-right: 8px;
+  align-items: center;
+  position: relative;
+  grid-template-rows: 32px;
+}
+
+.grid-col-span-2{
+  grid-column: span 2;
+}
+
+@for $i from 1 through 9 {
+  .fw-#{$i * 100} {
+    font-weight: #{$i * 100};
+  }
+}

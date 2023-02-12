@@ -1,7 +1,6 @@
-$primary-font: 'Inter', sans-serif;
+$primary-font: 'Plus Jakarta Sans', sans-serif;
 
 :root {
-
   --gray-50: hsl(0, 0%, 99.54%);
   --gray-100: hsl(0, 0%, 98.04%);
   --gray-200: hsl(0, 0%, 94.12%);
@@ -9,5 +8,13 @@ $primary-font: 'Inter', sans-serif;
   --gray-400: hsl(0, 0%, 86.27%);
   --gray-500: hsl(0, 0%, 82.75%);
 
-  --primary-font: 'Inter', sans-serif;
+  --blue-100: hsl(222.86, 100%, 97.25%);
+  --blue-200: hsl(219, 100%, 88.24%);
+  --blue-300: hsl(217.42, 100%, 81.76%);
+  --blue-400: hsl(214.81, 100%, 74.31%);
+  --blue-500: hsl(210.49, 100%, 64.12%);
+
+  --text-color: hsl(217, 71%, 15%);
+
+  --primary-font: 'Plus Jakarta Sans', sans-serif;
 }
