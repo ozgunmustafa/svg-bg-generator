@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <div className="general-grid">
-        <div className="general-grid_left">
+        <div className="general-grid_left scroll-box">
           <DragDropContext onDragEnd={handleDrop}>
             <Droppable droppableId="list-container">
               {(provided) => (
@@ -40,47 +40,22 @@ function App() {
           <div className="panel">
             <div className="panel_body">
               <div className="attribute-grid">
-                <div className="attribute-grid_header grid-col-span-2">
+                <div className="attribute-grid_header col-span-12">
                   <div className="attribute-grid_title">Canvas Size</div>
                 </div>
-                <label className="attribute-input-group">
+                <label className="attribute-input-group col-span-6">
                   <span className="attribute-text">X</span>
                   <input className="attribute-input" type="text" value="3500" />
                 </label>
-                <label className="attribute-input-group">
+                <label className="attribute-input-group col-span-6">
                   <span className="attribute-text">X</span>
                   <input className="attribute-input" type="text" value="3500" />
                 </label>
-                <label className="attribute-input-group">
+                <label className="attribute-input-group col-span-6">
                   <span className="attribute-text">X</span>
                   <input className="attribute-input" type="text" value="3500" />
                 </label>
-                <label className="attribute-input-group">
-                  <span className="attribute-text">X</span>
-                  <input className="attribute-input" type="text" value="3500" />
-                </label>
-              </div>
-            </div>
-          </div>
-          <div className="panel">
-            <div className="panel_body">
-              <div className="attribute-grid">
-                <div className="attribute-grid_header grid-col-span-2">
-                  <div className="attribute-grid_title">Canvas Size</div>
-                </div>
-                <label className="attribute-input-group">
-                  <span className="attribute-text">X</span>
-                  <input className="attribute-input" type="text" value="3500" />
-                </label>
-                <label className="attribute-input-group">
-                  <span className="attribute-text">X</span>
-                  <input className="attribute-input" type="text" value="3500" />
-                </label>
-                <label className="attribute-input-group">
-                  <span className="attribute-text">X</span>
-                  <input className="attribute-input" type="text" value="3500" />
-                </label>
-                <label className="attribute-input-group">
+                <label className="attribute-input-group col-span-6">
                   <span className="attribute-text">X</span>
                   <input className="attribute-input" type="text" value="3500" />
                 </label>

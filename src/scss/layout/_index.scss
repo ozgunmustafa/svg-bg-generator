@@ -1,24 +1,44 @@
 .general-grid {
-  display: grid;
+  //display: grid;
   min-height: 100vh;
 
   &_left {
+    width: 100%;
     max-width: 250px;
+    border-right: 1px solid var(--gray-300);
+    height: 100vh;
+    max-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    background-color: white;
   }
   &_center {
     background-color: var(--gray-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-height: 100vh;
   }
   &_right {
     height: 100%;
     max-height: 100vh;
     max-width: 300px;
+    border-left: 1px solid var(--gray-300);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    background-color: white;
   }
 }
 
 .attribute-grid {
   display: grid;
   gap: 0.75rem 1rem;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 34px;
   padding: 0 1rem;
   &_header {

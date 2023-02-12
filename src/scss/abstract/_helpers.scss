@@ -14,7 +14,7 @@
 
 .row-custom {
   display: grid;
-  grid-template-columns: repeat(28, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding-left: 8px;
   padding-right: 8px;
   align-items: center;
@@ -22,8 +22,20 @@
   grid-template-rows: 32px;
 }
 
-.grid-col-span-2{
-  grid-column: span 2;
+.scroll-box {
+  overflow: auto;
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-fill-color: black;
+  box-shadow: 0 1px 6px var(--gray-300);
+  transition: color 0.2s ease;
+  &:hover {
+    color: var(--gray-500);
+  }
+}
+@for $i from 1 through 12 {
+  .col-span-#{$i} {
+    grid-column: span $i;
+  }
 }
 
 @for $i from 1 through 9 {
