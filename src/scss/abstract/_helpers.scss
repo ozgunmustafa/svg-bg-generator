@@ -23,13 +23,14 @@
 }
 
 .scroll-box {
-  overflow: auto;
-  color: rgba(0, 0, 0, 0);
-  -webkit-text-fill-color: black;
-  box-shadow: 0 1px 6px var(--gray-300);
-  transition: color 0.2s ease;
+  overflow: hidden;
+  // color: rgba(0, 0, 0, 0);
+  // -webkit-text-fill-color: black;
+  // box-shadow: 0 1px 6px var(--gray-300);
+  // transition: color 0.2s ease;
   &:hover {
-    color: var(--gray-500);
+    overflow: auto;
+    //color: var(--gray-500);
   }
 }
 @for $i from 1 through 12 {

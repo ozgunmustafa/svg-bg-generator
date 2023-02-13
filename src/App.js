@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import LayerCard from './components/LayerCard';
+import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
+
 import { listData } from './data/listData';
 
 const LayerList = React.memo(function LayerList({ layers }) {
@@ -35,7 +37,20 @@ function App() {
             </Droppable>
           </DragDropContext>
         </div>
-        <div className="general-grid_center"></div>
+        <div className="general-grid_center">
+          <div className="canvas-container">
+            <div
+              className="canvas-wrapper scroll-box"
+              style={{ inset: '0 250px 0 0' }}
+            >
+              <canvas
+                width="2500"
+                height="2500"
+                style={{ backgroundColor: 'white' }}
+              ></canvas>
+            </div>
+          </div>
+        </div>
         <div className="general-grid_right">
           <div className="panel">
             <div className="panel_body">
