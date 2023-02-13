@@ -1,0 +1,18 @@
+.canvas-objects-btn {
+  border: 1px dashed var(--gray-500);
+  //background-color: var(--gray-200);
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 12px;
+  font-family: 'calibri';
+  cursor: pointer;
+  transition: 0.15s ;
+  &:active {
+    border-color: var(--blue-500);
+    background-color: var(--blue-200);
+  }
+}

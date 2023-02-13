@@ -34,8 +34,10 @@
     margin-left: -3px;
     border-radius: 0.25rem;
     width: 100%;
+    background-color: transparent;
 
-    &:focus {
+    &:focus,
+    &:hover {
       border-color: var(--gray-200);
       border-left-color: transparent;
     }
