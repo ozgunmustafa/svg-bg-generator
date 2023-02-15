@@ -13,18 +13,24 @@ const LayerList = React.memo(function LayerList({ layers }) {
 });
 
 function App() {
-  const [canvasAttribute, setCanvasAttribute] = useState({
-    canvasWidth: 650,
-    canvasHeight: 650,
+  const [artboardSVGItems, setArtboardSVGItems] = useState([]);
+  const [artboardAttribute, setArtboardAttribute] = useState({
+    artboardWidth: 650,
+    artboardHeight: 650,
   });
 
-  const handleCanvasAttribute = (event) => {
-    setCanvasAttribute({
-      ...canvasAttribute,
+  const addItemToArtboard = (type) => {
+    setArtboardSVGItems([...artboardSVGItems, { type: type }]);
+    console.log(artboardSVGItems);
+  };
+
+  const handleArtboardAttribute = (event) => {
+    setArtboardAttribute({
+      ...artboardAttribute,
       [event.target.name]: event.target.value,
     });
+    console.log(artboardAttribute);
   };
-  const defaultList = ['A', 'B', 'C', 'D', 'E'];
 
   const [itemList, setItemList] = useState(listData);
   const handleDrop = (droppedItem) => {
@@ -46,15 +52,24 @@ function App() {
                 </div>
               </div>
               <div className="row-comp canvas-objects-list gap-1">
-                <button className="canvas-objects-btn col-span-4">
+                <button
+                  className="canvas-objects-btn col-span-4"
+                  onClick={() => addItemToArtboard('shape')}
+                >
                   <ShapeIcon width="14" height="14" />
                   Shape
                 </button>
-                <button className="canvas-objects-btn col-span-4">
+                <button
+                  className="canvas-objects-btn col-span-4"
+                  onClick={() => addItemToArtboard('image')}
+                >
                   <ImageIcon width="14" height="14" />
                   Image
                 </button>
-                <button className="canvas-objects-btn col-span-4">
+                <button
+                  className="canvas-objects-btn col-span-4"
+                  onClick={() => addItemToArtboard('text')}
+                >
                   <TextIcon width="14" height="14" />
                   Text
                 </button>
@@ -79,11 +94,39 @@ function App() {
               className="canvas-wrapper scroll-box"
               style={{ inset: '0 250px 0 0' }}
             >
-              <canvas
-                width={canvasAttribute.canvasWidth}
-                height={canvasAttribute.canvasHeight}
-                style={{ backgroundColor: 'white' }}
-              ></canvas>
+              <svg
+                id="canvas"
+                width={artboardAttribute.artboardWidth}
+                height={artboardAttribute.artboardHeight}
+                style={{
+                  width: artboardAttribute.artboardWidth,
+                  height: artboardAttribute.artboardHeight,
+                  backgroundColor: 'white',
+                }}
+              >
+                {artboardSVGItems?.map((item, index) => (
+                  <svg
+                    viewBox="0 0 800 800"
+                    width="230"
+                    height="120"
+                    xmlns="http://www.w3.org/2000/svg"
+                    key={index}
+                  >
+                    {item.type === 'shape' && (
+                      <circle cx="170" cy="60" r="50" fill="green" />
+                    )}
+                    {item.type === 'text' && (
+                      <rect
+                        x="200"
+                        y="200"
+                        width="400"
+                        height="400"
+                        fill="#EACF44"
+                      ></rect>
+                    )}
+                  </svg>
+                ))}
+              </svg>
             </div>
           </div>
         </div>
@@ -98,10 +141,10 @@ function App() {
                   <span className="attribute-text">W</span>
                   <input
                     className="attribute-input"
-                    name="canvasWidth"
+                    name="artboardWidth"
                     type="number"
-                    value={canvasAttribute.canvasWidth}
-                    onChange={handleCanvasAttribute}
+                    value={artboardAttribute.artboardWidth}
+                    onChange={handleArtboardAttribute}
                     min="0"
                     step="1"
                   />
@@ -110,21 +153,13 @@ function App() {
                   <span className="attribute-text">H</span>
                   <input
                     className="attribute-input"
-                    name="canvasHeight"
+                    name="artboardHeight"
                     type="number"
-                    value={canvasAttribute.canvasHeight}
-                    onChange={handleCanvasAttribute}
+                    value={artboardAttribute.artboardHeight}
+                    onChange={handleArtboardAttribute}
                     min="0"
                     step="1"
                   />
-                </label>
-                <label className="attribute-input-group col-span-6">
-                  <span className="attribute-text">X</span>
-                  <input className="attribute-input" type="text" value="3500" />
-                </label>
-                <label className="attribute-input-group col-span-6">
-                  <span className="attribute-text">X</span>
-                  <input className="attribute-input" type="text" value="3500" />
                 </label>
               </div>
             </div>
