@@ -95,6 +95,7 @@ function App() {
               style={{ inset: '0 250px 0 0' }}
             >
               <svg
+                viewBox={`0 0 ${artboardAttribute.artboardWidth} ${artboardAttribute.artboardWidth}`}
                 id="canvas"
                 width={artboardAttribute.artboardWidth}
                 height={artboardAttribute.artboardHeight}
