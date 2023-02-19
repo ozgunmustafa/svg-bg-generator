@@ -3,60 +3,40 @@ export const listData = [
     id: '1',
     type: 'shape',
     title: 'Learn Angular in 21 days',
+
+    position: {
+      x: 0,
+      y: 0,
+    },
+    size: {
+      width: "100%",
+      height: "100%",
+    },
   },
   {
     id: '2',
-    type: 'shape',
+    type: 'text',
     title: 'Learn Angular in 21 days',
+    position: {
+      x: 30,
+      y: 420,
+    },
+    size: {
+      width: 240,
+      height: 550,
+    },
   },
   {
     id: '3',
-    type: 'text',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '4',
-    type: 'shape',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '5',
     type: 'image',
     title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '6',
-    type: 'text',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '7',
-    type: 'shape',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '8',
-    type: 'image',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '9',
-    type: 'text',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '10',
-    type: 'shape',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '11',
-    type: 'image',
-    title: 'Learn Angular in 21 days',
-  },
-  {
-    id: '12',
-    type: 'text',
-    title: 'Learn Angular in 21 days',
+    position: {
+      x: 200,
+      y: 150,
+    },
+    size: {
+      width: 540,
+      height: 350,
+    },
   },
 ];
