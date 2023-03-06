@@ -27,12 +27,23 @@ function App() {
   });
 
   const addItemToArtboard = (type) => {
+    let lastItem = itemList[itemList.length - 1].id;
+    console.log(lastItem);
+
     setItemList([
       ...itemList,
       {
-        id: '13',
+        id: lastItem.id,
         type: type,
         title: 'Learn Angular in 21 days',
+        position: {
+          x: 0,
+          y: 0,
+        },
+        size: {
+          width: 300,
+          height: 300,
+        },
       },
     ]);
   };
@@ -117,46 +128,49 @@ function App() {
                   backgroundColor: 'white',
                 }}
               >
-                {itemList?.map((item, index) => (
-                  <svg
-                    className={
-                      item.id === activeItem.id && 'artboard-active-item'
-                    }
-                    viewBox={`0 0 ${item.size.width} ${item.size.height}`}
-                    width={item.size.width}
-                    height={item.size.height}
-                    xmlns="http://www.w3.org/2000/svg"
-                    key={index}
-                    onClick={() => setActiveItem(item)}
-                  >
-                    {item.type === 'image' && (
-                      <circle
-                        cx={item.position.x}
-                        cy={item.position.y}
-                        r="50"
-                        fill="green"
-                      />
-                    )}
-                    {item.type === 'shape' && (
-                      <rect
-                        x={item.position.x}
-                        y={item.position.y}
-                        width={item.size.width}
-                        height={item.size.height}
-                        fill="#EACF44"
-                      ></rect>
-                    )}
-                    {item.type === 'text' && (
-                      <text
-                        x={item.position.x}
-                        y={item.position.y}
-                        fontSize="1rem"
-                      >
-                        My
-                      </text>
-                    )}
-                  </svg>
-                ))}
+                {itemList?.map((item, index) => {
+                  console.log('xxx', item);
+                  return (
+                    <svg
+                      className={
+                        item.id === activeItem.id && 'artboard-active-item'
+                      }
+                      viewBox={`0 0 ${item.size.width} ${item.size.height}`}
+                      width={item.size.width}
+                      height={item.size.height}
+                      xmlns="http://www.w3.org/2000/svg"
+                      key={index}
+                      onClick={() => setActiveItem(item)}
+                    >
+                      {item.type === 'image' && (
+                        <circle
+                          cx={item.position.x}
+                          cy={item.position.y}
+                          r="50"
+                          fill="green"
+                        />
+                      )}
+                      {item.type === 'shape' && (
+                        <rect
+                          x={item.position.x}
+                          y={item.position.y}
+                          width={item.size.width}
+                          height={item.size.height}
+                          fill="#EACF44"
+                        ></rect>
+                      )}
+                      {item.type === 'text' && (
+                        <text
+                          x={item.position.x}
+                          y={item.position.y}
+                          fontSize="1rem"
+                        >
+                          My
+                        </text>
+                      )}
+                    </svg>
+                  );
+                })}
               </svg>
             </div>
           </div>
@@ -169,7 +183,7 @@ function App() {
                   <div className="row-comp_title">Canvas Size</div>
                 </div>
                 <label className="attribute-input-group col-span-6">
-                  <span className="attribute-text">W</span>
+                  <span className="attribute-text">Width</span>
                   <input
                     className="attribute-input"
                     name="artboardWidth"
@@ -181,7 +195,7 @@ function App() {
                   />
                 </label>
                 <label className="attribute-input-group col-span-6">
-                  <span className="attribute-text">H</span>
+                  <span className="attribute-text">Height</span>
                   <input
                     className="attribute-input"
                     name="artboardHeight"
