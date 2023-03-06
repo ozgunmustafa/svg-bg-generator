@@ -6,22 +6,35 @@ import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import { listData } from './data/listData';
 import { ShapeIcon, ImageIcon, TextIcon } from './components/partials/Icons';
 
-const LayerList = React.memo(function LayerList({ layers }) {
-  return layers.map((item, index) => (
-    <LayerCard item={item} index={index} key={index} />
-  ));
-});
-
 function App() {
-  const [artboardSVGItems, setArtboardSVGItems] = useState([]);
+  const LayerList = React.memo(function LayerList({ layers }) {
+    return layers.map((item, index) => (
+      <LayerCard
+        item={item}
+        index={index}
+        key={index}
+        isActive={item.id === activeItem.id}
+      />
+    ));
+  });
+
+  const [activeItem, setActiveItem] = useState(listData[0]);
+
+  const [itemList, setItemList] = useState(listData);
   const [artboardAttribute, setArtboardAttribute] = useState({
     artboardWidth: 650,
     artboardHeight: 650,
   });
 
   const addItemToArtboard = (type) => {
-    setArtboardSVGItems([...artboardSVGItems, { type: type }]);
-    console.log(artboardSVGItems);
+    setItemList([
+      ...itemList,
+      {
+        id: '13',
+        type: type,
+        title: 'Learn Angular in 21 days',
+      },
+    ]);
   };
 
   const handleArtboardAttribute = (event) => {
@@ -32,7 +45,6 @@ function App() {
     console.log(artboardAttribute);
   };
 
-  const [itemList, setItemList] = useState(listData);
   const handleDrop = (droppedItem) => {
     if (!droppedItem.destination) return;
     var updatedList = [...itemList];
@@ -95,7 +107,7 @@ function App() {
               style={{ inset: '0 250px 0 0' }}
             >
               <svg
-                viewBox={`0 0 ${artboardAttribute.artboardWidth} ${artboardAttribute.artboardWidth}`}
+                // viewBox={`0 0 ${artboardAttribute.artboardWidth} ${artboardAttribute.artboardHeight}`}
                 id="canvas"
                 width={artboardAttribute.artboardWidth}
                 height={artboardAttribute.artboardHeight}
@@ -105,25 +117,43 @@ function App() {
                   backgroundColor: 'white',
                 }}
               >
-                {artboardSVGItems?.map((item, index) => (
+                {itemList?.map((item, index) => (
                   <svg
-                    viewBox="0 0 800 800"
-                    width="230"
-                    height="120"
+                    className={
+                      item.id === activeItem.id && 'artboard-active-item'
+                    }
+                    viewBox={`0 0 ${item.size.width} ${item.size.height}`}
+                    width={item.size.width}
+                    height={item.size.height}
                     xmlns="http://www.w3.org/2000/svg"
                     key={index}
+                    onClick={() => setActiveItem(item)}
                   >
-                    {item.type === 'shape' && (
-                      <circle cx="170" cy="60" r="50" fill="green" />
+                    {item.type === 'image' && (
+                      <circle
+                        cx={item.position.x}
+                        cy={item.position.y}
+                        r="50"
+                        fill="green"
+                      />
                     )}
-                    {item.type === 'text' && (
+                    {item.type === 'shape' && (
                       <rect
-                        x="200"
-                        y="200"
-                        width="400"
-                        height="400"
+                        x={item.position.x}
+                        y={item.position.y}
+                        width={item.size.width}
+                        height={item.size.height}
                         fill="#EACF44"
                       ></rect>
+                    )}
+                    {item.type === 'text' && (
+                      <text
+                        x={item.position.x}
+                        y={item.position.y}
+                        fontSize="1rem"
+                      >
+                        My
+                      </text>
                     )}
                   </svg>
                 ))}

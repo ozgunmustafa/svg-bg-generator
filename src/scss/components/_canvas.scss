@@ -18,6 +18,10 @@
     auto !important;
 }
 
+.artboard-active-item {
+  stroke: blue;
+  stroke-width: 1px;
+}
 #canvas {
   display: block;
   //margin-left: auto;

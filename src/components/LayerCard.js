@@ -2,9 +2,7 @@ import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { ShapeIcon, ImageIcon, TextIcon } from './partials/Icons';
 
-const LayerCard = ({ item, index }) => {
-
-
+const LayerCard = ({ item, index, isActive }) => {
   const getItemStyle = (isDragging, draggableStyle) => ({
     borderTop: isDragging && '1px solid lightgreen',
     ...draggableStyle,
@@ -24,7 +22,9 @@ const LayerCard = ({ item, index }) => {
       <Draggable draggableId={item.id} key={item.id} index={index}>
         {(provided, snapshot) => (
           <div
-            className={`layer-card ${snapshot.isDragging ? 'is-dragging' : ''}`}
+            className={`layer-card ${
+              snapshot.isDragging ? 'is-dragging' : ''
+            } ${isActive ? 'active' : ''}`}
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
